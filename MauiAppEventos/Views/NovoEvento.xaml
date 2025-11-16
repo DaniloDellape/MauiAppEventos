@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEventos.Views.NovoEvento"
+             Title="NovoEvento"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="DarkGreen">
+                
+    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+        <Label 
+            Text="Criar Novo Evento"
+            TextColor="White"
+            FontSize="Title"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Frame Margin="10"
+               Padding="10"
+               BackgroundColor="Black">
+            <VerticalStackLayout VerticalOptions="CenterAndExpand">
+                <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto"
+                  ColumnDefinitions="*, *"
+                  Padding="10">
+
+                    <Label Text="Nome do Evento:"
+                       Grid.Row="0" Grid.Column="0"
+                       Padding="10"/>
+
+                    <Entry x:Name="txt_NomeEvento"
+                       Grid.Row="0" Grid.Column="1"/>
+
+                    <Label Text="Data de Início:"
+                       Grid.Row="1" Grid.Column="0"
+                       Padding="10"/>
+
+                    <DatePicker x:Name="dtpck_DataInicio"
+                       Grid.Row="1" Grid.Column="1"
+                            Format="dd/MM/yyyy"/>
+
+                    <Label Text="Data de Término:"
+                       Grid.Row="2" Grid.Column="0"
+                       Padding="10"/>
+
+                    <DatePicker x:Name="dtpck_DataTermino"
+                       Grid.Row="2" Grid.Column="1"
+                       Format="dd/MM/yyyy"/>
+
+                    <Label Text="Número de Participantes:"
+                       Grid.Row="3" Grid.Column="0"
+                       Padding="10"/>
+
+                    <Entry x:Name="txt_QntParticipantes"
+                       Grid.Row="3" Grid.Column="1"/>
+
+                    <Label Text="Local do Evento:"
+                       Grid.Row="4" Grid.Column="0"
+                       Padding="10"/>
+
+                    <Entry x:Name="txt_Local"
+                       Grid.Row="4" Grid.Column="1"/>
+
+                    <Label Text="Valor por Pessoa:"
+                       Grid.Row="5" Grid.Column="0"
+                       Padding="10"/>
+
+                    <Entry x:Name="txt_Valor"
+                       Grid.Row="5" Grid.Column="1"/>
+
+                </Grid>
+            </VerticalStackLayout>            
+        </Frame>
+        
+        <VerticalStackLayout VerticalOptions="CenterAndExpand">
+            <Grid RowDefinitions="Auto"
+                  ColumnDefinitions="*, *">
+
+                <Button Text="Confirmar Evento" Clicked="Button_Clicked"
+                        BackgroundColor="lightGreen"
+                        Padding="10"
+                        Margin="20"
+                        Grid.Row="0" Grid.Column="0"/>
+
+                <Button Text="Voltar" Clicked="Button_Clicked_1"
+                        BackgroundColor="lightGreen"
+                        Padding="10"
+                        Margin="20"
+                        Grid.Row="0" Grid.Column="1"/>
+
+            </Grid>
+        </VerticalStackLayout>
+        
+    </VerticalStackLayout>
+</ContentPage>

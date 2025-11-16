@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEventos.Views.Home"
+             Title="Home"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="DarkGreen">
+
+    
+
+    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+        <Label 
+            Text="Gerenciador de Eventos!"
+            TextColor="White"
+            FontSize="Title"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        
+        <Frame Padding="10" 
+               BackgroundColor="DarkGreen" 
+               BorderColor="DarkGreen">
+
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" >
+
+                <Label Text="Escolha a opção desejada:"
+                       TextColor="Black"
+                       Padding="50"/>
+
+            </HorizontalStackLayout>
+
+        </Frame>
+
+        <Grid RowDefinitions="Auto, Auto"
+              ColumnDefinitions="*, *">
+
+            <Button Text="Novo Evento" Clicked="Button_Clicked"
+                    BackgroundColor="lightGreen"
+                    Padding="10"
+                    Margin="20"
+                    Grid.Row="0" Grid.Column="0"/>
+
+            <Button Text="Ver Eventos" Clicked="Button_Clicked_1"
+                    BackgroundColor="lightGreen"
+                    Padding="10"
+                    Margin="20"
+                    Grid.Row="0" Grid.Column="1"/>
+
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentPage>
