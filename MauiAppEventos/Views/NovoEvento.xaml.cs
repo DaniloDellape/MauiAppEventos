@@ -4,19 +4,22 @@ namespace MauiAppEventos.Views;
 
 public partial class NovoEvento : ContentPage
 {
+
+
     App PropriedadesApp;
 
 
+
     public NovoEvento()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
 
         PropriedadesApp = (App)Application.Current;
 
         pck_evento.ItemsSource = PropriedadesApp.lista_eventos;
 
         dtpck_DataInicio.MinimumDate = DateTime.Now;
-        dtpck_DataInicio.MaximumDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month +1, DateTime.Now.Day);
+        dtpck_DataInicio.MaximumDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, DateTime.Now.Day);
 
         dtpck_DataTermino.MinimumDate = dtpck_DataInicio.Date.AddDays(0);
         dtpck_DataTermino.MaximumDate = dtpck_DataInicio.Date.AddDays(4);
@@ -36,7 +39,7 @@ public partial class NovoEvento : ContentPage
 
             await Navigation.PushAsync(new EventosAgendados()
             {
-                BindingContext = h 
+                BindingContext = h
             });
         }
         catch (Exception ex)
@@ -65,5 +68,18 @@ public partial class NovoEvento : ContentPage
 
         dtpck_DataTermino.MinimumDate = data_selecionada_inicio.AddDays(0);
         dtpck_DataTermino.MaximumDate = data_selecionada_inicio.AddDays(4);
+    }
+
+    private void pck_evento_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (pck_evento.SelectedItem is Evento evento)
+        {
+            // Define o BindingContext da página para o Evento selecionado
+            this.BindingContext = evento;
+        }
+        else
+        {
+            this.BindingContext = null;
+        }
     }
 }

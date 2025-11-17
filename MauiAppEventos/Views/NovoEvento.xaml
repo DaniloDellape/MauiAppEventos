@@ -5,7 +5,7 @@
              Title="NovoEvento"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="DarkOliveGreen">
-                
+
     <VerticalStackLayout VerticalOptions="CenterAndExpand">
         <Label 
             Text="Selecione um Evento"
@@ -15,6 +15,26 @@
             HorizontalOptions="Center" />
 
         <Frame Margin="10"
+       Padding="10">
+
+            <Grid RowDefinitions="Auto"
+          ColumnDefinitions="*, *"
+          Padding="10">
+
+                <Label Text="Selecione um Evento:"
+               Grid.Column="0" Grid.Row="0"
+               Padding="10"
+               />
+
+                <Picker x:Name="pck_evento"
+                 ItemDisplayBinding="{Binding Nome}"
+                 SelectedIndexChanged="pck_evento_SelectedIndexChanged"
+                 Grid.Row="0" Grid.Column="1"/>
+            </Grid>
+
+        </Frame>
+
+        <Frame Margin="10"
                Padding="10"
                BackgroundColor="Black">
             <VerticalStackLayout VerticalOptions="CenterAndExpand">
@@ -22,7 +42,9 @@
                   ColumnDefinitions="*, *, *"
                   Padding="10">
 
-                    
+
+
+
 
                     <Label Text="Data de Início:"
                        Grid.Row="1" Grid.Column="0"
@@ -50,6 +72,13 @@
                            Grid.Row="3" Grid.Column="1"
                            Padding="10"/>
 
+                    <Stepper x:Name="stp_QntIngresso"
+                       Grid.Row="3" Grid.Column="2"
+                       Minimum="1"
+                       Maximum="10"
+                       Increment="1"
+                       Margin="10"/>
+
                     <Label Text="Local do Evento:"
                        Grid.Row="4" Grid.Column="0"
                        Padding="10"/>
@@ -67,9 +96,9 @@
                            Grid.Row="5" Grid.Column="1" />
 
                 </Grid>
-            </VerticalStackLayout>            
+            </VerticalStackLayout>
         </Frame>
-        
+
         <VerticalStackLayout VerticalOptions="CenterAndExpand">
             <Grid RowDefinitions="Auto"
                   ColumnDefinitions="*, *">
@@ -88,6 +117,6 @@
 
             </Grid>
         </VerticalStackLayout>
-        
+
     </VerticalStackLayout>
 </ContentPage>

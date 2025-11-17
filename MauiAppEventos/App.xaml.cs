@@ -5,23 +5,23 @@ namespace MauiAppEventos
 {
     public partial class App : Application
     {
-        public List<Evento> lista_eventos = new List<Evento>
+        public List<Evento> lista_eventos = new()
         {
-            new Evento()
+            new()
             {
                 Nome = "Comic Com",
                 Lugar = "São Paulo",
                 ValorIngresso = 500.0,
             },
 
-            new Evento()
+            new()
             {
                 Nome = "Anime Friends",
                 Lugar = "São Paulo",
                 ValorIngresso = 100.0,
             },
 
-            new Evento()
+            new()
             {
                 Nome = "Anime ABC",
                 Lugar = "São Caetano",
