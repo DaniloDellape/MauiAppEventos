@@ -1,9 +1,33 @@
-﻿using MauiAppEventos.Views;
+﻿using MauiAppEventos.Models;
+using MauiAppEventos.Views;
 
 namespace MauiAppEventos
 {
     public partial class App : Application
     {
+        public List<Evento> lista_eventos = new List<Evento>
+        {
+            new Evento()
+            {
+                Nome = "Comic Com",
+                Lugar = "São Paulo",
+                ValorIngresso = 500.0,
+            },
+
+            new Evento()
+            {
+                Nome = "Anime Friends",
+                Lugar = "São Paulo",
+                ValorIngresso = 100.0,
+            },
+
+            new Evento()
+            {
+                Nome = "Anime ABC",
+                Lugar = "São Caetano",
+                ValorIngresso = 80.0,
+            }
+        };
         public App()
         {
             InitializeComponent();
@@ -15,8 +39,8 @@ namespace MauiAppEventos
         {
             var window = base.CreateWindow(activationState);
 
-            window.Width = 400;
-            window.Height = 600;
+            window.Width = 500;
+            window.Height = 700;
 
             return window;
         }

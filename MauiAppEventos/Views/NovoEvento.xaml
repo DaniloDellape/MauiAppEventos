@@ -4,38 +4,55 @@
              x:Class="MauiAppEventos.Views.NovoEvento"
              Title="NovoEvento"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="DarkGreen">
+             BackgroundColor="DarkOliveGreen">
                 
     <VerticalStackLayout VerticalOptions="CenterAndExpand">
         <Label 
-            Text="Criar Novo Evento"
+            Text="Selecione um Evento"
             TextColor="White"
             FontSize="Title"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
         <Frame Margin="10"
+       Padding="10">
+
+            <Grid RowDefinitions="Auto"
+          ColumnDefinitions="*, *"
+          Padding="10">
+
+                <Label Text="Selecione um Evento:"
+               Grid.Column="0" Grid.Row="0"
+               Padding="10"
+               />
+
+                <Picker x:Name="pck_evento"
+                 ItemDisplayBinding="{Binding Nome}"
+                 Grid.Row="0" Grid.Column="1"/>
+            </Grid>
+
+        </Frame>
+
+        <Frame Margin="10"
                Padding="10"
                BackgroundColor="Black">
             <VerticalStackLayout VerticalOptions="CenterAndExpand">
                 <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto"
-                  ColumnDefinitions="*, *"
+                  ColumnDefinitions="*, *, *"
                   Padding="10">
 
-                    <Label Text="Nome do Evento:"
-                       Grid.Row="0" Grid.Column="0"
-                       Padding="10"/>
+                    
 
-                    <Entry x:Name="txt_NomeEvento"
-                       Grid.Row="0" Grid.Column="1"/>
+                    
 
                     <Label Text="Data de Início:"
                        Grid.Row="1" Grid.Column="0"
                        Padding="10"/>
 
                     <DatePicker x:Name="dtpck_DataInicio"
-                       Grid.Row="1" Grid.Column="1"
-                            Format="dd/MM/yyyy"/>
+                                DateSelected="dtpck_DataInicio_DateSelected"
+                                Grid.Row="1" Grid.Column="1"
+                                Format="dd/MM/yyyy"/>
 
                     <Label Text="Data de Término:"
                        Grid.Row="2" Grid.Column="0"
@@ -45,26 +62,37 @@
                        Grid.Row="2" Grid.Column="1"
                        Format="dd/MM/yyyy"/>
 
-                    <Label Text="Número de Participantes:"
+                    <Label Text="Ingressos:"
                        Grid.Row="3" Grid.Column="0"
                        Padding="10"/>
 
-                    <Entry x:Name="txt_QntParticipantes"
-                       Grid.Row="3" Grid.Column="1"/>
+                    <Label Text="{Binding Value}"
+                           BindingContext="{x:Reference stp_QntIngresso}"
+                           Grid.Row="3" Grid.Column="1"
+                           Padding="10"/>
+
+                    <Stepper x:Name="stp_QntIngresso"
+                       Grid.Row="3" Grid.Column="2"
+                       Minimum="1"
+                       Maximum="10"
+                       Increment="1"
+                       Margin="10"/>
 
                     <Label Text="Local do Evento:"
                        Grid.Row="4" Grid.Column="0"
                        Padding="10"/>
 
-                    <Entry x:Name="txt_Local"
-                       Grid.Row="4" Grid.Column="1"/>
+                    <Label Text="{Binding Lugar}"                           
+                           Padding="10"
+                           Grid.Row="4" Grid.Column="1"/>
 
-                    <Label Text="Valor por Pessoa:"
+                    <Label Text="Valor do Ingresso:"
                        Grid.Row="5" Grid.Column="0"
                        Padding="10"/>
 
-                    <Entry x:Name="txt_Valor"
-                       Grid.Row="5" Grid.Column="1"/>
+                    <Label Text="{Binding ValorIngresso, StringFormat='{}{0:c}'}"
+                           Padding="10"
+                           Grid.Row="5" Grid.Column="1" />
 
                 </Grid>
             </VerticalStackLayout>            
