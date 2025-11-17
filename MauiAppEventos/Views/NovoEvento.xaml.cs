@@ -4,11 +4,7 @@ namespace MauiAppEventos.Views;
 
 public partial class NovoEvento : ContentPage
 {
-
-
     App PropriedadesApp;
-
-
 
 
     public NovoEvento()
